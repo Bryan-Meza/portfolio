@@ -1,0 +1,45 @@
+/* Base styles for links */
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  font-family: sans-serif;
+}
+
+/* Hover underline animation for larger screens */
+a:after {
+  display: block;
+  content: '';
+  width: inherit;
+  border-bottom: solid 3px blue;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+a:hover:after {
+  transform: scaleX(1);
+}
+
+/* Directional animation classes */
+a.from-left:after {
+  transform-origin: left;
+}
+
+a.from-right:after {
+  transform-origin: right;
+}
+
+/* Completely disable underline effect on smaller screens */
+@media (max-width: 768px) {
+  a {
+    text-decoration: none !important; /* Ensure no text underline */
+  }
+  
+  a:after,
+  a:hover:after {
+    display: none !important; /* Fully remove the pseudo-element */
+    content: none !important;
+    border-bottom: none !important;
+    transform: none !important;
+  }
+}

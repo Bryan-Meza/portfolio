@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="output.css" rel="stylesheet" />
+    <link href="/src/customNav.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="https://linkedin.com/in/bryan-meza"
+          target="_blank"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <span
+            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white font-Prompt"
+            >Bryan Meza</span
+          >
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <button
+            type="button"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          >
+            Projects
+          </button>
+          <button
+            data-collapse-toggle="navbar-cta"
+            type="button"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-cta"
+            aria-expanded="false"
+            id="menuButton"
+          >
+            <span class="sr-only">Open main menu</span>
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+        </div>
+        <div
+          class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          id="navbar-cta"
+        >
+          <ul
+            class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+          >
+            <li>
+              <a
+                href="#"
+                class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500 relative text-l w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center font-Prompt"
+                aria-current="page"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-l block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-Prompt"
+                >About</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-l block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-Prompt"
+                >Projects</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-l block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-Prompt"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Centered Hero Section -->
+    <div
+      class="intro-section h-screen bg-purple-900 text-white flex flex-col items-center justify-center p-10 space-y-4"
+    >
+      <!-- Profile Image -->
+      <div
+        class="profile-image w-40 h-40 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white"
+      >
+        <img
+          src="/img/imgPerfil.jpeg"
+          alt="Profile Image"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- Intro Text -->
+      <div class="text-center">
+        <h1 class="text-5xl font-bold mb-4">Hello, I'm Bryan Meza!</h1>
+        <p class="text-lg font-medium">LET'S CONNECT</p>
+        <!-- Social Icons -->
+        <div class="flex justify-center space-x-4 mt-4">
+          <a
+            href="https://linkedin.com/in/bryan-meza"
+            target="_blank"
+            class="text-white hover:text-blue-700"
+            ><i class="fab fa-linkedin text-xl"></i
+          ></a>
+          <a href="#" target="_blank" class="text-white hover:text-red-500"
+            ><i class="fab fa-instagram text-xl"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Me Section -->
+    <div
+      class="about-section bg-white py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-center space-y-8 md:space-y-0 md:space-x-16"
+    >
+      <!-- Left Section: Text Content -->
+      <div class="about-text max-w-lg">
+        <h2 class="text-4xl font-bold text-purple-800 mb-4">WHO AM I?</h2>
+        <p class="text-2xl font-semibold text-gray-900 mb-4">
+          I'm Bryan Lemus, a Web Designer & Developer
+        </p>
+        <p class="text-gray-700 mb-6 leading-relaxed">
+          I’m passionate about creating beautiful, functional, and user-centered
+          designs. With expertise in HTML, CSS, JavaScript, and Python, I work
+          on projects that bridge creativity and functionality. My focus is on
+          delivering professional solutions that enhance user experience.
+        </p>
+        <div class="flex items-center space-x-4">
+          <span class="text-purple-700 font-bold">CONNECT WITH ME</span>
+          <a
+            href="#"
+            target="_blank"
+            class="text-purple-700 hover:text-blue-500"
+            ><i class="fab fa-facebook-f text-lg"></i
+          ></a>
+          <a
+            href="#"
+            target="_blank"
+            class="text-purple-700 hover:text-blue-400"
+            ><i class="fab fa-twitter text-lg"></i
+          ></a>
+          <a
+            href="#"
+            target="_blank"
+            class="text-purple-700 hover:text-pink-500"
+            ><i class="fab fa-dribbble text-lg"></i
+          ></a>
+          <a
+            href="#"
+            target="_blank"
+            class="text-purple-700 hover:text-blue-700"
+            ><i class="fab fa-linkedin text-lg"></i
+          ></a>
+          <a href="#" target="_blank" class="text-purple-700 hover:text-red-500"
+            ><i class="fab fa-instagram text-lg"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- Right Section: Skills Progress Bars -->
+      <div class="skills w-full max-w-md space-y-6">
+        <!-- HTML & CSS Skill -->
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-800 font-medium">HTML & CSS</span>
+            <span class="text-purple-700 font-bold">85%</span>
+          </div>
+          <div class="w-full bg-gray-300 rounded-full h-2.5">
+            <div
+              class="bg-purple-700 h-2.5 rounded-full"
+              style="width: 85%"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Python Skill -->
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-800 font-medium">Python</span>
+            <span class="text-purple-700 font-bold">70%</span>
+          </div>
+          <div class="w-full bg-gray-300 rounded-full h-2.5">
+            <div
+              class="bg-purple-700 h-2.5 rounded-full"
+              style="width: 70%"
+            ></div>
+          </div>
+        </div>
+
+        <!-- JavaScript Skill -->
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-800 font-medium">JavaScript</span>
+            <span class="text-purple-700 font-bold">98%</span>
+          </div>
+          <div class="w-full bg-gray-300 rounded-full h-2.5">
+            <div
+              class="bg-purple-700 h-2.5 rounded-full"
+              style="width: 98%"
+            ></div>
+          </div>
+        </div>
+
+        <!-- Figma Skill -->
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-800 font-medium">Figma</span>
+            <span class="text-purple-700 font-bold">91%</span>
+          </div>
+          <div class="w-full bg-gray-300 rounded-full h-2.5">
+            <div
+              class="bg-purple-700 h-2.5 rounded-full"
+              style="width: 91%"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--My trajectory-->
+    <div
+      class="bg-white border-gray-200 dark:bg-gray-900 py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-center space-y-8 md:space-y-0 md:space-x-16"
+    >
+      <ol class="relative border-s border-gray-200 dark:border-gray-700">
+        <li class="mb-10 ms-6">
+          <span
+            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+          >
+            <svg
+              class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+              />
+            </svg>
+          </span>
+          <h3
+            class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white"
+          >
+            My Resume
+            <span
+              class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300 ms-3"
+              >Latest</span
+            >
+          </h3>
+          <time
+            class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+            >2024</time
+          >
+          <p
+            class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
+          >
+            Get access to over 20+ pages including a dashboard layout, charts,
+            kanban board, calendar, and pre-order E-commerce & Marketing pages.
+          </p>
+          <a
+            href="#"
+            class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
+            ><svg
+              class="w-3.5 h-3.5 me-2.5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"
+              />
+              <path
+                d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+              />
+            </svg>
+            Download ZIP</a
+          >
+        </li>
+        <li class="mb-10 ms-6">
+          <span
+            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+          >
+            <svg
+              class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+              />
+            </svg>
+          </span>
+          <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+            Flowbite Figma v1.3.0
+          </h3>
+          <time
+            class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+            >Released on December 7th, 2021</time
+          >
+          <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+            All of the pages and components are first designed in Figma and we
+            keep a parity between the two versions even as we update the
+            project.
+          </p>
+        </li>
+        <li class="ms-6">
+          <span
+            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+          >
+            <svg
+              class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+              />
+            </svg>
+          </span>
+          <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+            Flowbite Library v1.2.2
+          </h3>
+          <time
+            class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+            >Released on December 2nd, 2021</time
+          >
+          <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+            Get started with dozens of web components and interactive elements
+            built on top of Tailwind CSS.
+          </p>
+        </li>
+      </ol>
+    </div>
+    <!-- Script for Mobile Menu Toggle -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuButton = document.getElementById("menuButton");
+        const mobileMenu = document.getElementById("navbar-cta");
+
+        menuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>
