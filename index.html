@@ -22,7 +22,7 @@
           class="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <span
-            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white font-Prompt"
+            class="self-center text-2xl whitespace-nowrap dark:text-white font-Prompt"
             >Bryan Meza</span
           >
         </a>
@@ -68,6 +68,7 @@
           >
             <li>
               <a
+                type="Button"
                 href="#"
                 class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500 relative text-l w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center font-Prompt"
                 aria-current="page"
@@ -76,10 +77,11 @@
             </li>
             <li>
               <a
-                href="#"
+                onclick="scrollToSection('about')"
                 class="text-l block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-Prompt"
-                >About</a
               >
+                About
+              </a>
             </li>
             <li>
               <a
@@ -101,7 +103,7 @@
     </nav>
     <!-- Centered Hero Section -->
     <div
-      class="bgColor intro-section h-screen text-white flex flex-col items-center justify-center p-10 space-y-4"
+      class="intro-section h-screen text-white flex flex-col items-center justify-center p-10 space-y-4 bgImage"
     >
       <!-- Profile Image -->
       <div
@@ -115,7 +117,7 @@
       </div>
 
       <!-- Intro Text -->
-      <div class="text-center">
+      <div class="text-center roundCorners">
         <h1 class="text-5xl font-bold mb-4">Hello, I'm Bryan Meza!</h1>
         <p class="text-lg font-medium">LET'S CONNECT</p>
         <!-- Social Icons -->
@@ -132,19 +134,20 @@
 
     <!-- About Me Section -->
     <div
-      class="about-section bg-white py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-center space-y-8 md:space-y-0 md:space-x-16"
+      id="about"
+      class="bg-white py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-center space-y-8 md:space-y-0 md:space-x-16"
     >
       <!-- Left Section: Text Content -->
-      <div class="about-text max-w-lg">
+      <div class="max-w-lg">
         <h2 class="text-4xl font-bold primaryColor mb-4">WHO AM I?</h2>
         <p class="text-2xl font-semibold text-gray-900 mb-4">
           I'm Bryan Meza, a Software Developer
         </p>
         <p class="text-gray-700 mb-6 leading-relaxed">
-          I’m passionate about creating beautiful, functional, and user-centered
-          designs. With expertise in HTML, CSS, JavaScript, and Python, I work
-          on projects that bridge creativity and functionality. My focus is on
-          delivering professional solutions that enhance user experience.
+          Computer Science student at the Instituto Tecnológico y de Estudios
+          Superiores de Monterrey with experience in developing sales platforms
+          and customer control applications. Eager to continue learning and
+          applying technology to create effective and innovative solutions.
         </p>
         <div class="flex items-center space-x-4">
           <span class="primaryColor font-bold">CONNECT WITH ME</span>
@@ -242,27 +245,18 @@
           <p
             class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
           >
-            Get access to over 20+ pages including a dashboard layout, charts,
-            kanban board, calendar, and pre-order E-commerce & Marketing pages.
+            This CV highlights my academic journey as a Computer Science student
+            at ITESM and my experience in software development.
           </p>
           <a
-            href="#"
+            href="https://drive.google.com/file/d/1O0Gi4O6C4L15Sfu8JMizbMz6BHOVwlzL/view?usp=sharing"
             class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-            ><svg
-              class="w-3.5 h-3.5 me-2.5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M14.707 7.793a1 1 0 0 0-1.414 0L11 10.086V1.5a1 1 0 0 0-2 0v8.586L6.707 7.793a1 1 0 1 0-1.414 1.414l4 4a1 1 0 0 0 1.416 0l4-4a1 1 0 0 0-.002-1.414Z"
-              />
-              <path
-                d="M18 12h-2.55l-2.975 2.975a3.5 3.5 0 0 1-4.95 0L4.55 12H2a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Zm-3 5a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
-              />
-            </svg>
-            Download ZIP</a
+            target="_blank"
+            ><i
+              class="fa-solid fa-file"
+              style="font-size: 20px; padding: 15px"
+            ></i
+            >View Resume</a
           >
         </li>
         <li class="mb-10 ms-6">
@@ -324,6 +318,14 @@
         </li>
       </ol>
     </div>
+    <script>
+      function scrollToSection(id) {
+        const element = document.getElementById(id);
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+        history.pushState(null, "", " "); // Clear hash in URL
+      }
+    </script>
+
     <!-- Script for Mobile Menu Toggle -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
