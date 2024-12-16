@@ -6,6 +6,7 @@
     <link href="/src/customNav.css" rel="stylesheet" />
     <link href="/dist/output.css" rel="stylesheet" />
     <link href="/src/customAttributes.css" rel="stylesheet" />
+    <link href="/src/customCards.css" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -368,9 +369,95 @@
         </li>
       </ol>
     </div>
+    <!-- Contact Me Section -->
+    <div
+      id="contact"
+      class="bg-gray-100 py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-center space-y-8 md:space-y-0 md:space-x-16"
+    >
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">Contact Me</h2>
+        <p class="text-lg text-gray-700 mb-12">
+          Have a project in mind or just want to say hello? Feel free to reach
+          out!
+        </p>
+        <form
+          action="https://formsubmit.co/your-email@example.com"
+          method="POST"
+          class="space-y-6"
+        >
+          <!-- Name Input -->
+          <div>
+            <label
+              for="name"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            ></label>
+            <label
+              for="name"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              >Full Name <span style="color: red">*</span></label
+            >
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-800 focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-800"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
 
-    <!--Services-->
+          <!-- Email Input -->
+          <div>
+            <label
+              for=""
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            ></label>
+            <label
+              for="email"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              >Email Address <span style="color: red">*</span></label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-800 focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-800"
+              placeholder="example@domain.com"
+              required
+            />
+          </div>
 
+          <!-- Message Textarea -->
+          <div>
+            <label
+              for=""
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            ></label>
+            <label
+              for="message"
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
+              >Your Message <span style="color: red">*</span></label
+            >
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-800 focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-800"
+              placeholder="Write your message here..."
+              required
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <button
+            type="submit"
+            class="w-full bg-blue-700 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
     <!--Portfolio-->
     <script>
       function scrollToSection(id) {
