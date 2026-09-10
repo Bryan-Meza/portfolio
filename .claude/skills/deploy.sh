@@ -11,6 +11,23 @@ if [ ! -f "package.json" ]; then
     exit 1
 fi
 
+# Check 1.5: Run pre-deployment build check (validates vercel.json + simulates
+# the real Vercel build so config/schema errors are caught before pushing)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ -f "$SCRIPT_DIR/check-deploy.sh" ]; then
+    echo "🔍 Running pre-deployment build check..."
+    echo ""
+    if ! bash "$SCRIPT_DIR/check-deploy.sh"; then
+        echo ""
+        echo "❌ Pre-deployment check failed. Fix the issues above before deploying."
+        exit 1
+    fi
+    echo ""
+else
+    echo "⚠️  check-deploy.sh not found, skipping pre-deployment build check."
+    echo ""
+fi
+
 # Check 2: Verify git repository
 if [ ! -d ".git" ]; then
     echo "❌ Error: Not a git repository."
