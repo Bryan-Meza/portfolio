@@ -1,5 +1,11 @@
 html{
     scroll-behavior: smooth;
+    background-color: #0b1120;
+    color-scheme: light;
+}
+
+html.dark{
+    color-scheme: dark;
 }
 
 .roundCorners{
@@ -21,4 +27,146 @@ html{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+/* Professional Experience section: light, with restrained brand-color accents */
+.experience-section{
+    position: relative;
+    background: linear-gradient(180deg, #F8FAFC 0%, #EEF2FF 55%, #F8FAFC 100%);
+    transition: background 250ms ease;
+}
+
+html.dark .experience-section{
+    background: linear-gradient(180deg, #0B1220 0%, #111827 55%, #0B1220 100%);
+}
+
+.experience-eyebrow{
+    color: #4F46E5;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+html.dark .experience-eyebrow{
+    color: #A5B4FC;
+}
+
+/* Card: soft surface, restrained shadow, thin brand-gradient top accent */
+.exp-card{
+    --a1: #0EA5E9;
+    --a2: #1E3A8A;
+    --a-rgb: 51,65,85;
+    position: relative;
+    border-radius: 1.25rem;
+    background: #ffffff;
+    border: 1px solid #E5E7EB;
+    box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 10px 20px -16px rgba(15,23,42,0.12);
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease, background 250ms ease;
+    overflow: hidden;
+    overflow-anchor: none;
+}
+
+html.dark .exp-card{
+    background: #131A2A;
+    border-color: #232B3D;
+}
+
+.exp-card:hover{
+    transform: translateY(-6px);
+    border-color: rgba(var(--a-rgb),0.4);
+    box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 16px 28px -16px rgba(var(--a-rgb),0.22);
+}
+
+.exp-card-inner{
+    position: relative;
+    padding: 1.75rem;
+}
+
+.exp-card::before{
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--a1), var(--a2));
+}
+
+.exp-logo-badge{
+    display: inline-flex;
+    align-items: center;
+    height: 2.25rem;
+}
+
+.exp-logo-badge img{
+    height: 100%;
+    max-width: 9rem;
+    object-fit: contain;
+}
+
+/* C3.ai's logo is solid black artwork; invert it so it stays visible on a dark card */
+html.dark .exp-card-c3 .exp-logo-badge img{
+    filter: invert(1) brightness(1.6);
+}
+
+.exp-tech-chip{
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(var(--a-rgb),0.08);
+    border: 1px solid rgba(var(--a-rgb),0.25);
+    color: #374151;
+}
+
+html.dark .exp-tech-chip{
+    background: rgba(var(--a-rgb),0.18);
+    border-color: rgba(var(--a-rgb),0.4);
+    color: #E5E7EB;
+}
+
+/* Accent colors matched to each company's actual logo palette:
+   C3.ai's mark is solid black/graphite; CEMEX's is red-and-blue. */
+.exp-card-c3{ --a1: #475569; --a2: #0F172A; --a-rgb: 71,85,105; }
+.exp-card-cemex{ --a1: #EF4444; --a2: #1D4ED8; --a-rgb: 29,78,216; }
+
+/* Contact section: floating card */
+.contact-section{
+    background: linear-gradient(180deg, #F1F5F9 0%, #E2E8F0 100%);
+    transition: background 250ms ease;
+}
+
+html.dark .contact-section{
+    background: linear-gradient(180deg, #0B1220 0%, #0F172A 100%);
+}
+
+.contact-card{
+    background: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 30px 60px -20px rgba(15,23,42,0.25);
+    border: 1px solid #E5E7EB;
+    transition: background 250ms ease, border-color 250ms ease;
+}
+
+html.dark .contact-card{
+    background: #131A2A;
+    border-color: #232B3D;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2), 0 30px 60px -20px rgba(0,0,0,0.55);
+}
+
+.skill-pill{
+    transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.skill-pill:hover{
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
+
+.fade-in-up{
+    animation: fadeInUp 700ms ease both;
+    overflow-anchor: none;
+}
+
+@keyframes fadeInUp{
+    from{ opacity: 0; transform: translateY(16px); }
+    to{ opacity: 1; transform: translateY(0); }
 }

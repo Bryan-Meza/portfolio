@@ -3,6 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      (function () {
+        var stored = localStorage.getItem("theme");
+        var theme =
+          stored ||
+          (window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <link href="/src/customNav.css" rel="stylesheet" />
     <link href="/dist/output.css" rel="stylesheet" />
     <link href="/src/customAttributes.css" rel="stylesheet" />
@@ -12,8 +28,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
   </head>
-  <body>
-    <nav class="bg-white border-gray-200 dark:bg-gray-900">
+  <body class="bg-white dark:bg-gray-950 transition-colors duration-300">
+    <nav class="navGlass fixed top-0 inset-x-0 z-50">
       <div
         class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
       >
@@ -22,23 +38,23 @@
           target="_blank"
           class="flex items-center space-x-3 rtl:space-x-reverse"
         >
-          <span
-            class="self-center text-2xl whitespace-nowrap dark:text-white font-Prompt"
+          <span class="self-center text-2xl whitespace-nowrap text-white font-Prompt"
             >Bryan Meza</span
           >
         </a>
-        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div class="flex items-center md:order-2 space-x-1 rtl:space-x-reverse">
           <button
+            id="themeToggle"
             type="button"
-            onclick="scrollToSection('trajectory')"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            aria-label="Toggle light and dark theme"
+            class="inline-flex items-center justify-center w-10 h-10 rounded-lg text-white/80 hover:bg-white/10 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-white/20"
           >
-            Projects
+            <i id="themeIcon" class="fa-solid fa-moon"></i>
           </button>
           <button
             data-collapse-toggle="navbar-cta"
             type="button"
-            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white/80 rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/20"
             aria-controls="navbar-cta"
             aria-expanded="false"
             id="menuButton"
@@ -66,12 +82,12 @@
           id="navbar-cta"
         >
           <ul
-            class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
+            class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg bg-black/40 md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0"
           >
             <li>
               <a
                 type="Button"
-                class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:dark:text-blue-500 relative text-l w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-center font-Prompt"
+                class="nav-link is-active block py-2 px-3 md:p-0 text-l w-fit font-Prompt"
                 aria-current="page"
                 >Home</a
               >
@@ -80,7 +96,7 @@
               <a
                 type="Button"
                 onclick="scrollToSection('about')"
-                class="text-l block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-Prompt"
+                class="nav-link block py-2 px-3 md:p-0 text-l font-Prompt"
               >
                 About
               </a>
@@ -88,8 +104,16 @@
             <li>
               <a
                 type="Button"
+                onclick="scrollToSection('experience')"
+                class="nav-link block py-2 px-3 md:p-0 text-l font-Prompt"
+                >Experience</a
+              >
+            </li>
+            <li>
+              <a
+                type="Button"
                 onclick="scrollToSection('trajectory')"
-                class="text-l block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-Prompt"
+                class="nav-link block py-2 px-3 md:p-0 text-l font-Prompt"
                 >Projects</a
               >
             </li>
@@ -97,7 +121,7 @@
               <a
                 type="Button"
                 onclick="scrollToSection('contact')"
-                class="text-l block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 font-Prompt"
+                class="nav-link block py-2 px-3 md:p-0 text-l font-Prompt"
                 >Contact</a
               >
             </li>
@@ -105,6 +129,7 @@
         </div>
       </div>
     </nav>
+    <div id="navSpacer" class="h-[72px]"></div>
     <!-- Centered Hero Section -->
     <div
       class="intro-section h-screen text-white flex flex-col items-center justify-center p-10 space-y-4 bgImage"
@@ -145,32 +170,37 @@
     <!-- About Me Section -->
     <div
       id="about"
-      class="bg-white py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-center space-y-8 md:space-y-0 md:space-x-16"
+      class="bg-white dark:bg-gray-900 py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-center space-y-8 md:space-y-0 md:space-x-16 transition-colors duration-300"
     >
       <!-- Left Section: Text Content -->
       <div class="max-w-lg">
-        <h2 class="text-4xl font-bold primaryColor mb-4">WHO AM I?</h2>
-        <p class="text-2xl font-semibold text-gray-900 mb-4">
+        <h2 class="text-4xl font-bold text-blue-900 dark:text-blue-300 mb-4">WHO AM I?</h2>
+        <p class="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
           I'm Bryan Meza, a Software Developer
         </p>
-        <p class="text-gray-700 mb-6 leading-relaxed">
-          Computer Science student at the Instituto Tecnológico y de Estudios
-          Superiores de Monterrey with experience in developing sales platforms
-          and customer control applications. Eager to continue learning and
-          applying technology to create effective and innovative solutions.
+        <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+          6th-semester Computer Science student at Tecnológico de Monterrey,
+          currently working as a Software Development Engineer in Test Intern
+          at <span class="font-semibold">C3 AI</span>, building end-to-end test
+          automation with Python, TypeScript, and Playwright. Previously an IT
+          Operations & Architecture Intern at <span class="font-semibold">CEMEX</span>,
+          researching LLM security and AI integration patterns. I love building
+          full-stack and AI-powered products, from SwiftUI mobile apps to
+          RAG-based chatbots, and I'm always looking for the next interesting
+          problem to solve.
         </p>
         <div class="flex items-center space-x-4">
-          <span class="primaryColor font-bold">CONNECT WITH ME</span>
+          <span class="text-blue-900 dark:text-blue-300 font-bold">CONNECT WITH ME</span>
           <a
             href="https://linkedin.com/in/bryan-meza"
             target="_blank"
-            class="primaryColor hover:text-blue-700"
+            class="text-blue-900 dark:text-blue-300 hover:text-blue-700 dark:hover:text-white"
             ><i class="fab fa-linkedin text-lg"></i
           ></a>
           <a
             href="https://github.com/Bryan-Meza"
             target="_blank"
-            class="primaryColor hover:text-blue-700"
+            class="text-blue-900 dark:text-blue-300 hover:text-blue-700 dark:hover:text-white"
             ><i class="fab fa-github text-lg"></i
           ></a>
         </div>
@@ -178,58 +208,142 @@
 
       <!-- Right Section: Skills Progress Bars -->
       <div class="skills w-full max-w-md space-y-6">
-        <!-- HTML & CSS Skill -->
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-gray-800 font-medium">HTML & CSS</span>
-            <span class="primaryColor font-bold">Intermediate</span>
-          </div>
-          <div class="w-full bg-gray-300 rounded-full h-2.5">
-            <div class="bgColor h-2.5 rounded-full" style="width: 65%"></div>
-          </div>
-        </div>
-
         <!-- Python Skill -->
         <div>
           <div class="flex justify-between mb-1">
-            <span class="text-gray-800 font-medium">Python</span>
-            <span class="primaryColor font-bold">Proficiency</span>
+            <span class="text-gray-800 dark:text-gray-200 font-medium">Python</span>
+            <span class="text-blue-900 dark:text-blue-300 font-bold">Proficiency</span>
           </div>
-          <div class="w-full bg-gray-300 rounded-full h-2.5">
-            <div class="bgColor h-2.5 rounded-full" style="width: 100%"></div>
-          </div>
-        </div>
-
-        <!-- C++ Skill -->
-        <div>
-          <div class="flex justify-between mb-1">
-            <span class="text-gray-800 font-medium">C++</span>
-            <span class="primaryColor font-bold">Proficiency</span>
-          </div>
-          <div class="w-full bg-gray-300 rounded-full h-2.5">
-            <div class="bgColor h-2.5 rounded-full" style="width: 100%"></div>
+          <div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2.5">
+            <div class="bgColor h-2.5 rounded-full" style="width: 95%"></div>
           </div>
         </div>
 
-        <!-- JavaScript Skill -->
+        <!-- TypeScript / JavaScript Skill -->
         <div>
           <div class="flex justify-between mb-1">
-            <span class="text-gray-800 font-medium">JavaScript</span>
-            <span class="primaryColor font-bold">Intermediate</span>
+            <span class="text-gray-800 dark:text-gray-200 font-medium">TypeScript & JavaScript</span>
+            <span class="text-blue-900 dark:text-blue-300 font-bold">Proficiency</span>
           </div>
-          <div class="w-full bg-gray-300 rounded-full h-2.5">
-            <div class="bgColor h-2.5 rounded-full" style="width: 65%"></div>
+          <div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2.5">
+            <div class="bgColor h-2.5 rounded-full" style="width: 85%"></div>
           </div>
         </div>
 
-        <!-- PHP Skill -->
+        <!-- Swift / SwiftUI Skill -->
         <div>
           <div class="flex justify-between mb-1">
-            <span class="text-gray-800 font-medium">PHP</span>
-            <span class="primaryColor font-bold">Proficiency</span>
+            <span class="text-gray-800 dark:text-gray-200 font-medium">Swift & SwiftUI</span>
+            <span class="text-blue-900 dark:text-blue-300 font-bold">Proficiency</span>
           </div>
-          <div class="w-full bg-gray-300 rounded-full h-2.5">
-            <div class="bgColor h-2.5 rounded-full" style="width: 100%"></div>
+          <div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2.5">
+            <div class="bgColor h-2.5 rounded-full" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <!-- C++ / C# Skill -->
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-800 dark:text-gray-200 font-medium">C++ & C#</span>
+            <span class="text-blue-900 dark:text-blue-300 font-bold">Proficiency</span>
+          </div>
+          <div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2.5">
+            <div class="bgColor h-2.5 rounded-full" style="width: 90%"></div>
+          </div>
+        </div>
+
+        <!-- AI & Cloud Skill -->
+        <div>
+          <div class="flex justify-between mb-1">
+            <span class="text-gray-800 dark:text-gray-200 font-medium">AI & Cloud (Gemini, OCI, GCP)</span>
+            <span class="text-blue-900 dark:text-blue-300 font-bold">Intermediate</span>
+          </div>
+          <div class="w-full bg-gray-300 dark:bg-gray-700 rounded-full h-2.5">
+            <div class="bgColor h-2.5 rounded-full" style="width: 75%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Professional Experience Section -->
+    <div id="experience" class="experience-section py-20 px-6 sm:px-12 md:px-20 lg:px-32">
+      <div class="max-w-5xl mx-auto relative">
+        <p class="experience-eyebrow text-center mb-3">WHERE I'VE BUILT</p>
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-2 text-center">
+          Professional Experience
+        </h2>
+        <p class="text-gray-500 dark:text-gray-400 text-center mb-14">
+          Putting my code to work in the real world
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- C3 AI -->
+          <div class="exp-card exp-card-c3 fade-in-up">
+            <div class="exp-card-inner">
+              <div class="exp-logo-badge mb-5">
+                <img src="/img/c3-ai-logo.png" alt="C3 AI logo" />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                Software Development Engineer in Test Intern
+              </h3>
+              <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">
+                C3 AI &middot; Guadalajara, Mexico
+              </p>
+              <p class="text-sm text-gray-400 dark:text-gray-500 mb-4">Aug. 2026 – Present</p>
+              <ul class="text-gray-600 dark:text-gray-300 text-sm space-y-2 list-disc list-inside mb-5">
+                <li>
+                  Develop the end-to-end (E2E) test automation lifecycle for a
+                  QA automation initiative dashboard, covering analysis,
+                  documentation, and implementation.
+                </li>
+                <li>
+                  Integrate automated tests into CI/CD pipelines, giving the
+                  team real-time execution tracking and full traceability of
+                  QA results.
+                </li>
+              </ul>
+              <div class="flex flex-wrap gap-2">
+                <span class="exp-tech-chip">Python</span>
+                <span class="exp-tech-chip">TypeScript</span>
+                <span class="exp-tech-chip">Playwright</span>
+                <span class="exp-tech-chip">Automation</span>
+                <span class="exp-tech-chip">CI/CD</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CEMEX -->
+          <div class="exp-card exp-card-cemex fade-in-up" style="animation-delay: 120ms">
+            <div class="exp-card-inner">
+              <div class="exp-logo-badge mb-5">
+                <img src="/img/cemex-logo.png" alt="CEMEX logo" />
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">
+                IT Operations & Architecture Intern (P&IT)
+              </h3>
+              <p class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-1">
+                CEMEX &middot; Monterrey, Mexico
+              </p>
+              <p class="text-sm text-gray-400 dark:text-gray-500 mb-4">Aug. 2025 – Feb. 2026</p>
+              <ul class="text-gray-600 dark:text-gray-300 text-sm space-y-2 list-disc list-inside mb-5">
+                <li>
+                  Contributed to the Security Architecture Definition project,
+                  leading AI security research evaluating LLM threat models,
+                  prompt injection risks, and secure AI integration patterns
+                  for enterprise adoption.
+                </li>
+                <li>
+                  Evaluated and classified OT cybersecurity risks following
+                  industry standards; optimized incident reporting workflows
+                  to increase operational visibility.
+                </li>
+              </ul>
+              <div class="flex flex-wrap gap-2">
+                <span class="exp-tech-chip">AI Security</span>
+                <span class="exp-tech-chip">LLM Threat Models</span>
+                <span class="exp-tech-chip">OT Cybersecurity</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -238,9 +352,19 @@
     <!--My trajectory-->
     <div
       id="trajectory"
-      class="bg-white border-gray-200 dark:bg-gray-900 py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-center space-y-8 md:space-y-0 md:space-x-16"
+      class="bg-white dark:bg-gray-900 py-16 px-6 sm:px-12 md:px-20 lg:px-32 transition-colors duration-300"
     >
-      <ol class="relative border-s border-gray-200 dark:border-gray-700">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <p class="experience-eyebrow mb-3">WHAT I'VE SHIPPED</p>
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          Projects & Resume
+        </h2>
+        <p class="text-gray-500 dark:text-gray-400">
+          A timeline of what I've built along the way
+        </p>
+      </div>
+      <div class="flex flex-col md:flex-row items-start justify-center">
+      <ol class="relative border-s border-gray-200 dark:border-gray-700 w-full max-w-3xl mx-auto">
         <li class="mb-10 ms-6">
           <span
             class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
@@ -268,7 +392,7 @@
           </h3>
           <time
             class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
-            >2024</time
+            >2026</time
           >
           <p
             class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400"
@@ -277,7 +401,7 @@
             at ITESM and my experience in software development.
           </p>
           <a
-            href="https://drive.google.com/file/d/1O0Gi4O6C4L15Sfu8JMizbMz6BHOVwlzL/view?usp=sharing"
+            href="/Bryan-Lemus-Meza-Resume.pdf"
             class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-100 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-gray-700"
             target="_blank"
             ><i
@@ -286,6 +410,81 @@
             ></i
             >View Resume</a
           >
+        </li>
+        <li class="mb-10 ms-6">
+          <span
+            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+          >
+            <i
+              class="fa-solid fa-code fa-xs text-blue-800 dark:text-blue-300"
+            ></i>
+          </span>
+          <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+            Machtia
+            <span
+              class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-white-900 dark:text-black-300 ms-3"
+              >Featured</span
+            >
+          </h3>
+          <time
+            class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+            >Oct. 2025 – Dec. 2025</time
+          >
+          <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+            Accessible mobile learning app for coffee growers, built with
+            SwiftUI, SwiftData, and Supabase, featuring a Gemini-powered admin
+            panel that turns YouTube videos into a RAG-based course chatbot.
+          </p>
+        </li>
+        <li class="mb-10 ms-6">
+          <span
+            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+          >
+            <i
+              class="fa-solid fa-code fa-xs text-blue-800 dark:text-blue-300"
+            ></i>
+          </span>
+          <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+            HackMTY 2025 – Cappie
+            <span
+              class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-white-900 dark:text-black-300 ms-3"
+              >Hackathon</span
+            >
+          </h3>
+          <time
+            class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+            >October, 2025</time
+          >
+          <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+            AI-powered personal finance coach built at Mexico's largest
+            hackathon; a SwiftUI app connected to a FastAPI + MySQL backend,
+            using Gemini AI for natural-language spending analysis.
+          </p>
+        </li>
+        <li class="mb-10 ms-6">
+          <span
+            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
+          >
+            <i
+              class="fa-solid fa-code fa-xs text-blue-800 dark:text-blue-300"
+            ></i>
+          </span>
+          <h3 class="mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+            Gamified Training System
+            <span
+              class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-white-900 dark:text-black-300 ms-3"
+              >Project</span
+            >
+          </h3>
+          <time
+            class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
+            >Mar. 2025 – Jun. 2025</time
+          >
+          <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+            Gamified employee training platform for OXXO combining Unity
+            interactive modules with an ASP.NET backend, increasing engagement
+            through achievement systems and real-time dashboards.
+          </p>
         </li>
         <li class="mb-10 ms-6">
           <span
@@ -384,18 +583,22 @@
           </p>
         </li>
       </ol>
+      </div>
     </div>
     <!-- Contact Me Section -->
     <div
       id="contact"
-      class="bg-gray-100 py-16 px-8 md:px-20 flex flex-col md:flex-row items-start justify-center space-y-8 md:space-y-0 md:space-x-16"
+      class="contact-section py-20 px-6 sm:px-12 md:px-20"
     >
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-4xl font-bold text-gray-900 mb-6">Contact Me</h2>
-        <p class="text-lg text-gray-700 mb-12">
+      <div class="max-w-2xl mx-auto text-center mb-10">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Contact Me</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">
           Have a project in mind or just want to say hello? Feel free to reach
           out!
         </p>
+      </div>
+
+      <div class="contact-card max-w-2xl mx-auto p-8 md:p-12">
         <form
           action="https://formsubmit.co/55c7525d6ddccb4820d3676373f6a37e"
           method="POST"
@@ -418,18 +621,14 @@
           <div>
             <label
               for="name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            ></label>
-            <label
-              for="name"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-              >Full Name <span style="color: red">*</span></label
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200"
+              >Full Name <span class="text-red-500">*</span></label
             >
             <input
               type="text"
               id="name"
               name="name"
-              class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-800 focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-800"
+              class="block w-full p-4 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-base placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 focus:bg-white dark:focus:bg-gray-800 transition-colors"
               placeholder="Enter your full name"
               required
             />
@@ -438,19 +637,15 @@
           <!-- Email Input -->
           <div>
             <label
-              for=""
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            ></label>
-            <label
               for="email"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-              >Email Address <span style="color: red">*</span></label
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200"
+              >Email Address <span class="text-red-500">*</span></label
             >
             <input
               type="email"
               id="email"
               name="email"
-              class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-800 focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-800"
+              class="block w-full p-4 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-base placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 focus:bg-white dark:focus:bg-gray-800 transition-colors"
               placeholder="example@domain.com"
               required
             />
@@ -459,19 +654,15 @@
           <!-- Message Textarea -->
           <div>
             <label
-              for=""
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            ></label>
-            <label
               for="message"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-black"
-              >Your Message <span style="color: red">*</span></label
+              class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-200"
+              >Your Message <span class="text-red-500">*</span></label
             >
             <textarea
               id="message"
               name="message"
               rows="5"
-              class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-800 focus:border-blue-800 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-800"
+              class="block w-full p-4 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-xl bg-gray-50 dark:bg-gray-800 text-base placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 focus:bg-white dark:focus:bg-gray-800 transition-colors"
               placeholder="Write your message here..."
               required
             ></textarea>
@@ -480,7 +671,7 @@
           <!-- Submit Button -->
           <button
             type="submit"
-            class="w-medium bg-blue-700 text-white font-medium py-2 px-4 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+            class="block mx-auto bg-blue-700 text-white font-medium py-3 px-10 rounded-xl hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 focus:outline-none transition-colors"
           >
             Send Message
           </button>
@@ -504,6 +695,43 @@
 
         menuButton.addEventListener("click", () => {
           mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
+
+    <!-- Nav height sync (fixed nav needs a spacer of matching height) -->
+    <script>
+      function syncNavSpacer() {
+        const nav = document.querySelector("nav.navGlass");
+        const spacer = document.getElementById("navSpacer");
+        if (nav && spacer) {
+          spacer.style.height = nav.offsetHeight + "px";
+        }
+      }
+      window.addEventListener("load", syncNavSpacer);
+      window.addEventListener("resize", syncNavSpacer);
+      document.addEventListener("DOMContentLoaded", syncNavSpacer);
+    </script>
+
+    <!-- Theme toggle -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const root = document.documentElement;
+        const toggleBtn = document.getElementById("themeToggle");
+        const icon = document.getElementById("themeIcon");
+
+        function updateIcon() {
+          const isDark = root.classList.contains("dark");
+          icon.className = isDark ? "fa-solid fa-sun" : "fa-solid fa-moon";
+        }
+
+        updateIcon();
+
+        toggleBtn.addEventListener("click", function () {
+          const isDark = root.classList.toggle("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "light");
+          root.style.colorScheme = isDark ? "dark" : "light";
+          updateIcon();
         });
       });
     </script>
